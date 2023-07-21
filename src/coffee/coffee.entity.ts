@@ -15,7 +15,7 @@ export class Coffee extends BaseEntity {
   ph: number;
 
   @Column({
-    type: 'real',
+    type: 'float',
     nullable: true,
   })
   waterflow: number;
