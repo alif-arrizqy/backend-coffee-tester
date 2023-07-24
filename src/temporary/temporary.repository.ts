@@ -22,6 +22,10 @@ export class TemporaryRepository extends Repository<Temporary> {
     waterflow,
     status,
   }: Temporary): Promise<Temporary> {
+    // ph to fixed
+    ph = parseFloat(ph.toFixed(2));
+    // waterflow to fixed
+    waterflow = parseFloat(waterflow.toFixed(2));
     console.log(ph, waterflow, status);
     const temporary = this.create({
       ph,
