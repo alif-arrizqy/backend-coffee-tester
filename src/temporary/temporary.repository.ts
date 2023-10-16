@@ -10,10 +10,12 @@ export class TemporaryRepository extends Repository<Temporary> {
 
   async getTemporary(): Promise<Temporary[]> {
     const query = this.createQueryBuilder('temporary');
+    // const temporary = await query.getMany();
+    // descending order
+    query.orderBy('temporary.id', 'DESC');
+    // limit
+    query.limit(1);
     const temporary = await query.getMany();
-    if (temporary.length === 0) {
-      throw new NotFoundException('Coffee test not found');
-    }
     return temporary;
   }
 
